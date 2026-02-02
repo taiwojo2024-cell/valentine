@@ -1,37 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine?</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: pink;
-      font-family: Arial, sans-serif;
-    }
-    .box {
-      text-align: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-    }
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 18px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Theo 💖</title>
+ 
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+  }
+ 
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+ 
+  h1 {
+    color: #ff3d6e;
+  }
+ 
+  p {
+    color: #555;
+  }
+ 
+  button {
+    padding: 12px 22px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.2s;
+  }
+ 
+  #yes {
+    background: #ff3d6e;
+    color: white;
+  }
+ 
+  #yes:hover {
+    transform: scale(1.1);
+  }
+ 
+  #no {
+    background: #ddd;
+    position: absolute;
+  }
+ 
+  .heart {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+  }
+ 
+  @keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+  }
+</style>
 </head>
+ 
 <body>
-  <div class="box">
-    <h1>Will you be my Valentine? 💖</h1>
-    <button onclick="alert('YAY 💕')">Yes</button>
-    <button onclick="alert('You can’t say no 😭')">No</button>
-  </div>
+ 
+<div class="card">
+  <h1>Theo 💕</h1>
+  <p>Will you be my Valentine? 🥹</p>
+  <button id="yes" onclick="yesClicked()">Yes 💖</button>
+  <button id="no" onmouseover="runAway()">No 😭</button>
+</div>
+ 
+<script>
+  function runAway() {
+    const no = document.getElementById("no");
+    const card = document.querySelector(".card");
+ 
+    const maxX = card.clientWidth - no.offsetWidth;
+    const maxY = card.clientHeight - no.offsetHeight;
+ 
+    no.style.left = Math.random() * maxX + "px";
+    no.style.top = Math.random() * maxY + "px";
+    no.style.transform = "scale(0.8)";
+  }
+ 
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div style="
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+        font-family:Arial;
+        text-align:center;
+      ">
+        <h1 style="color:#ff3d6e;">YAYYY THEO 💘</h1>
+        <p style="font-size:20px;">You just made my Valentine perfect 🥰</p>
+        <p>I’m really glad it’s you ❤️</p>
+      </div>
+    `;
+  }
+ 
+  function createHearts() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+ 
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+ 
+  setInterval(createHearts, 300);
+</script>
+ 
 </body>
 </html>
  
