@@ -8,39 +8,48 @@
   body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(135deg, #ff6f91, #ffb3c6);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     overflow: hidden;
   }
  
   .card {
     background: white;
-    padding: 30px;
-    border-radius: 25px;
+    padding: 35px;
+    border-radius: 30px;
     text-align: center;
-    width: 320px;
+    width: 360px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+ 
+  .teddy {
+    font-size: 90px; /* BIG teddy */
+    margin-bottom: 15px;
   }
  
   h1 {
+    font-size: 42px; /* BIG name */
     color: #ff3d6e;
+    margin: 10px 0;
   }
  
   p {
-    color: #555;
+    font-size: 28px; /* BIG question text */
+    color: #333;
+    margin-bottom: 25px;
   }
  
   button {
-    padding: 12px 22px;
-    font-size: 18px;
+    padding: 16px 30px;
+    font-size: 24px; /* BIG buttons */
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: pointer;
-    margin: 10px;
+    margin: 12px;
     transition: 0.2s;
   }
  
@@ -60,8 +69,7 @@
  
   .heart {
     position: absolute;
-    color: pink;
-    font-size: 20px;
+    font-size: 26px;
     animation: float 5s linear infinite;
   }
  
@@ -75,9 +83,11 @@
 <body>
  
 <div class="card">
-  <h1>Theo 💕</h1>
-  <p>Will you be my Valentine? 🥹</p>
-  <button id="yes" onclick="yesClicked()">Yes 💖</button>
+  <div class="teddy">🧸💖</div>
+  <h1>Theo</h1>
+  <p>Will you be my Valentine?</p>
+ 
+  <button id="yes" onclick="yesClicked()">Yes 💕</button>
   <button id="no" onmouseover="runAway()">No 😭</button>
 </div>
  
@@ -91,7 +101,6 @@
  
     no.style.left = Math.random() * maxX + "px";
     no.style.top = Math.random() * maxY + "px";
-    no.style.transform = "scale(0.8)";
   }
  
   function yesClicked() {
@@ -105,10 +114,12 @@
         background:linear-gradient(135deg,#ff9a9e,#fad0c4);
         font-family:Arial;
         text-align:center;
+        padding:20px;
       ">
-        <h1 style="color:#ff3d6e;">YAYYY THEO 💘</h1>
-        <p style="font-size:20px;">You just made my Valentine perfect 🥰</p>
-        <p>I’m really glad it’s you ❤️</p>
+        <div style="font-size:100px;">🧸💘</div>
+        <h1 style="font-size:48px;color:#ff3d6e;">YAY THEO</h1>
+        <p style="font-size:30px;">You just made my heart smile 🥰</p>
+        <p style="font-size:26px;">Happy Valentine’s 💖</p>
       </div>
     `;
   }
@@ -116,14 +127,12 @@
   function createHearts() {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerHTML = "💖";
+    heart.innerHTML = "💗";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.top = "100vh";
     document.body.appendChild(heart);
  
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
+    setTimeout(() => heart.remove(), 5000);
   }
  
   setInterval(createHearts, 300);
@@ -131,4 +140,6 @@
  
 </body>
 </html>
+NO.STYLE - Premium Quality, Art-Focused Apparel
+No style? Then you'll love our selection. We are an art-focused, premium apparel company, committed to quality, originality, and innovation. Through collaborations with curated artists, every desig...
  
